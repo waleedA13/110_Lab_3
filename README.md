@@ -1,6 +1,6 @@
 # CSE 110 Lab 3: CSS
 
-**Team:** High Five
+**Team:** Akatsuki
 
 ## Published Site
 [My Published Site](https://waleedA13.github.io/sp26-cse110-lab3)
