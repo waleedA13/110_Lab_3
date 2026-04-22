@@ -283,22 +283,28 @@ h1.meeting-title {
     padding: 2rem 5%;
 }
 
-/* nested selectors */
 .feedback-form {
     max-width: 600px;
     margin: auto;
+}
 
-    fieldset {
-        border: 1px solid var(--border-color);
-        border-radius: var(--radius);
-        padding: 1.5rem;
-    }
+.feedback-form fieldset {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+}
 
-    legend {
-        font-weight: 700;
-        font-size: 1rem;
-        padding: 0 0.5em;
-        color: var(--primary-color);
+.feedback-form legend {
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0 0.5em;
+    color: var(--primary-color);
+}
+
+/* nested selectors */
+.card {
+    & .card-title {
+        text-transform: capitalize;
     }
 }
 
