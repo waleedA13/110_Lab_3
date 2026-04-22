@@ -1,4 +1,9 @@
-/* CSS Variables & Fallbacks */
+/* ============================================================
+   Team High Five – Meeting Minutes Stylesheet
+   CSE 110 Lab 3
+   ============================================================ */
+
+/* --- CSS Variables & Fallbacks --- */
 :root {
     --primary-color: hsl(220, 60%, 45%);
     --primary-light: hsl(220, 60%, 92%);
@@ -13,31 +18,37 @@
     --radius: 8px;
     --gap: 1.25rem;
 
-    /* wider-gamut colors */
+    /* Wider-gamut colors */
     --wide-accent: color(display-p3 0.9 0.45 0.1);
     --mixed-highlight: color-mix(in srgb, hsl(220, 60%, 45%) 60%, orange 40%);
 }
 
-/* universal reset */
+/* --- Universal Selector --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* --- Element Selector (body) --- */
 body {
-    font-family: var(--font-body, Arial, sans-serif);
+    font-family: var(--font-body, Arial, sans-serif);  /* CSS variable with fallback */
     color: var(--text-color);
     background-color: var(--bg-color);
     line-height: 1.6;
     min-width: 280px;
 }
 
+/* --- Element Selector (headings, paragraph) --- */
 h1, h2, h3 {
     line-height: 1.3;
 }
 
-/* header */
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+/* --- Class Selector --- */
 .site-header {
     background-color: var(--primary-color);
     color: white;
@@ -55,7 +66,7 @@ h1, h2, h3 {
     margin-bottom: 1rem;
 }
 
-/* element.class combinator */
+/* --- Combining Two Selectors (element.class) --- */
 h1.meeting-title {
     font-size: 2rem;
     text-decoration: underline;
@@ -71,7 +82,7 @@ h1.meeting-title {
     opacity: 0.9;
 }
 
-/* attribute selector */
+/* --- Attribute Selector --- */
 [data-type="date"] {
     font-family: var(--font-mono, monospace);
     font-size: 0.9rem;
@@ -79,7 +90,7 @@ h1.meeting-title {
     opacity: 0.85;
 }
 
-/* nav flexbox */
+/* --- Nav with Flexbox --- */
 .main-nav {
     margin-top: 0.5rem;
 }
@@ -103,17 +114,22 @@ h1.meeting-title {
     transition: background-color 0.2s, transform 0.15s;
 }
 
+/* --- Pseudo-class Selector :hover --- */
 .nav-link:hover {
     background-color: rgba(255, 255, 255, 0.2);
     transform: translateY(-1px);
 }
 
+/* --- Pseudo-class Selector :active --- */
 .nav-link:active {
     background-color: rgba(255, 255, 255, 0.35);
     transform: translateY(0);
 }
 
-/* main content */
+/* ============================================================
+   MAIN CONTENT
+   ============================================================ */
+
 .main-content {
     max-width: 960px;
     width: 90%;
@@ -121,6 +137,7 @@ h1.meeting-title {
     padding: 2rem 0;
 }
 
+/* --- ID Selector --- */
 #attendance {
     margin-bottom: 1.5rem;
 }
@@ -143,7 +160,10 @@ h1.meeting-title {
     margin-bottom: 1rem;
 }
 
-/* attendance grid */
+/* ============================================================
+   ATTENDANCE – CSS Grid Layout
+   ============================================================ */
+
 .attendance-grid {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
@@ -161,12 +181,15 @@ h1.meeting-title {
     color: var(--primary-color);
 }
 
-/* descendant combinator */
+/* --- Descendant Combinator --- */
 .member-list li {
     padding: 0.2em 0;
 }
 
-/* divider */
+/* ============================================================
+   DIVIDER
+   ============================================================ */
+
 .divider {
     border-style: solid;
     border-color: var(--border-color);
@@ -179,17 +202,24 @@ h1.meeting-title {
     max-width: 960px;
 }
 
-/* child combinator */
+/* ============================================================
+   AGENDA
+   ============================================================ */
+
 .agenda-list {
     padding-left: 1.5em;
 }
 
+/* --- Child Combinator --- */
 .agenda-list > li {
     padding: 0.35em 0;
     border-bottom: 1px dashed var(--border-color);
 }
 
-/* business cards flexbox */
+/* ============================================================
+   BUSINESS & DISCUSSIONS – Flexbox Layout
+   ============================================================ */
+
 .business-flex {
     display: flex;
     flex-wrap: wrap;
@@ -206,7 +236,7 @@ h1.meeting-title {
     transition: box-shadow 0.2s;
 }
 
-/* :has() selector */
+/* --- :has() Selector (new in 2023) --- */
 .card:has(.card-title) {
     border-left: 4px solid var(--primary-color);
 }
@@ -229,12 +259,12 @@ h1.meeting-title {
     padding: 0.2em 0;
 }
 
-/* general sibling combinator */
+/* --- General Sibling Combinator --- */
 .unfinished-card ~ .action-card {
     border-left-color: var(--accent-color);
 }
 
-/* adjacent sibling combinator */
+/* --- Adjacent Sibling Combinator --- */
 .unfinished-card + .new-card {
     border-left-color: var(--mixed-highlight);
 }
@@ -244,7 +274,6 @@ h1.meeting-title {
     padding: 1rem 1rem 1rem 1rem;
     background-color: hsla(220, 60%, 92%, 0.85);
     border-radius: var(--radius);
-    position: relative;
 }
 
 .highlight-note {
@@ -252,7 +281,10 @@ h1.meeting-title {
     font-weight: 700;
 }
 
-/* media section */
+/* ============================================================
+   MEDIA SECTION
+   ============================================================ */
+
 .media-img {
     max-width: 100%;
     height: auto;
@@ -276,29 +308,38 @@ h1.meeting-title {
     height: auto;
 }
 
-/* footer & form */
+/* ============================================================
+   FOOTER & FORM
+   ============================================================ */
+
 .site-footer {
     background-color: var(--card-bg);
     border-top: 2px solid var(--border-color);
     padding: 2rem 5%;
 }
 
-/* nested selectors */
 .feedback-form {
     max-width: 600px;
     margin: auto;
+}
 
-    fieldset {
-        border: 1px solid var(--border-color);
-        border-radius: var(--radius);
-        padding: 1.5rem;
-    }
+.feedback-form fieldset {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+}
 
-    legend {
-        font-weight: 700;
-        font-size: 1rem;
-        padding: 0 0.5em;
-        color: var(--primary-color);
+.feedback-form legend {
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0 0.5em;
+    color: var(--primary-color);
+}
+
+/* nested selectors */
+.card {
+    & .card-title {
+        text-transform: capitalize;
     }
 }
 
@@ -338,7 +379,7 @@ h1.meeting-title {
     align-items: center;
 }
 
-/* selector list */
+/* --- Selector List --- */
 .radio-group label, .form-group > label {
     cursor: pointer;
 }
@@ -373,12 +414,45 @@ h1.meeting-title {
     color: var(--text-light);
 }
 
-/* display: none for empty elements */
+/* ============================================================
+   DISPLAY PROPERTY EXAMPLES
+   ============================================================ */
+
+/* display: none – hide absent section when empty */
 #attendance .attendance-col:last-child p:empty {
     display: none;
 }
 
-/* absolute unit examples */
+/* display: inline-block – used on .nav-link above */
+
+/* display: block – used on .submit-btn, .media-img above */
+
+/* ============================================================
+   POSITION EXAMPLES
+   ============================================================ */
+
+/* position: sticky – used on .site-header above */
+
+/* position: relative – for details disclosure icon */
+.misc-details {
+    position: relative;
+}
+
+/* ============================================================
+   UNITS REFERENCE
+   ============================================================
+   Relative units used:
+     rem  – font sizes, padding, margins throughout
+     em   – list padding, card spacing
+     %    – widths (.main-content width: 90%, .divider width: 90%)
+
+   Absolute units used:
+     px   – border-width, specific margins, media-img border
+     pt   – (used below)
+     cm   – (used below)
+   ============================================================ */
+
+/* Absolute unit examples (pt, cm) */
 .meeting-title {
     letter-spacing: 0.5pt;
 }
@@ -387,7 +461,11 @@ h1.meeting-title {
     min-height: 1cm;
 }
 
-/* responsive - phones */
+/* ============================================================
+   RESPONSIVE DESIGN – Media Queries
+   ============================================================ */
+
+/* Phones */
 @media (max-width: 600px) {
     .site-header {
         padding: 1rem 4%;
@@ -415,7 +493,7 @@ h1.meeting-title {
     }
 }
 
-/* responsive - tablets */
+/* Tablets */
 @media (min-width: 601px) and (max-width: 1024px) {
     .main-content {
         width: 92%;
@@ -426,7 +504,7 @@ h1.meeting-title {
     }
 }
 
-/* responsive - large desktops */
+/* Large desktops */
 @media (min-width: 1025px) {
     .main-content {
         max-width: 1000px;
